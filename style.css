@@ -1,0 +1,239 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial Rounded MT Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #ffcb05, #3d7dca);
+            padding: 20px;
+        }
+        
+        .calculator-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        .pokemon-header {
+            margin-bottom: 20px;
+            text-align: center;
+            animation: bounce 2s infinite;
+        }
+        
+        .pokemon-title {
+            font-size: 3rem;
+            color: #ffcb05;
+            text-shadow: 
+                3px 3px 0 #3d7dca,
+                -1px -1px 0 #3d7dca,
+                1px -1px 0 #3d7dca,
+                -1px 1px 0 #3d7dca;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .poke-ball {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(to bottom, #ff0000 0%, #ff0000 45%, #000000 45%, #000000 55%, #ffffff 55%, #ffffff 100%);
+            border-radius: 50%;
+            border: 4px solid #000000;
+            position: relative;
+            margin: 0 auto;
+        }
+        
+        .poke-ball::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background-color: #ffffff;
+            border: 4px solid #000000;
+            border-radius: 50%;
+        }
+        
+        .calculator {
+            background-color: #ffcb05;
+            border: 8px solid #3d7dca;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 203, 5, 0.5);
+            width: 350px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .display-area {
+            background-color: #003a70;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .display {
+            background-color: #9ec1e0;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+            border: 4px solid #3d7dca;
+            position: relative;
+            z-index: 2;
+        }
+        .previous-operand {
+            color: rgba(0, 58, 112, 0.7);
+            font-size: 1.2rem;
+            min-height: 24px;
+            overflow: hidden;
+            text-align: right;
+        }
+        
+        .current-operand {
+            color: #003a70;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-top: 10px;
+            min-height: 50px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: right;
+        }
+        
+        .pikachu-tail {
+            position: absolute;
+            top: 10px;
+            left: -15px;
+            width: 60px;
+            height: 30px;
+            background-color: #ffcb05;
+            border-radius: 50%;
+            transform: rotate(45deg);
+            z-index: 1;
+        }
+        
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+            background-color: #ffcb05;
+            padding: 20px;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        button {
+            border: none;
+            outline: none;
+            padding: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+            transition: all 0.2s;
+            border-radius: 50%;
+            height: 70px;
+            width: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        button:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .operator {
+            background-color: #3d7dca;
+        }
+        
+        .operator:hover {
+            background-color: #2a5c9c;
+        }
+        
+        .equals {
+            background-color: #cc0000;
+            border-radius: 50%;
+            grid-column: span 2;
+            width: auto;
+        }
+        
+        .equals:hover {
+            background-color: #a10000;
+        }
+        
+        .clear, .delete {
+            background-color: #ff0000;
+        }
+        
+        .clear:hover, .delete:hover {
+            background-color: #cc0000;
+        }
+        .number {
+            background-color: #003a70;
+        }
+        
+        .number:hover {
+            background-color: #00274d;
+        }
+        
+        .decimal {
+            background-color: #3d7dca;
+        }
+        
+        .decimal:hover {
+            background-color: #2a5c9c;
+        }
+        
+        .zero {
+            grid-column: span 2;
+            width: auto;
+            border-radius: 35px;
+        }
+        
+        .pokemon-footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #003a70;
+            font-weight: bold;
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .calculator {
+                width: 300px;
+            }
+            
+            button {
+                height: 60px;
+                width: 60px;
+                padding: 12px;
+                font-size: 1.2rem;
+            }
+            
+            .pokemon-title {
+                font-size: 2.5rem;
+            }
+        }
